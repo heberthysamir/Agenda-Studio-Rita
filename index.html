@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Studio Rita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .servico-card {
+            background: #ffffff;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .servico-card h3 {
+            margin: 0 0 8px 0;
+            color: #2c3e50;
+        }
+        .detalhes {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Studio Rita - Serviços</h1>
+        <p>Escolha um serviço para agendar:</p>
+        
+        <!-- Requisito RF01: Listagem de serviços -->
+        <div id="lista-servicos"></div>
+    </div>
+
+    <script>
+        const servicos = [
+            { id: 1, nome: "Corte", duracao: "1h", preco: "R$ 50" },
+            { id: 2, nome: "Escova", duracao: "30 min", preco: "R$ 35" },
+            { id: 3, nome: "Manicure", duracao: "30 min", preco: "R$ 25" },
+            { id: 4, nome: "Coloração", duracao: "1h30", preco: "R$ 120" }
+        ];
+
+        function carregarServicos() {
+            const container = document.getElementById("lista-servicos");
+            container.innerHTML = "";
+
+            servicos.forEach(servico => {
+                const card = document.createElement("div");
+                card.className = "servico-card";
+                card.innerHTML = `
+                    <h3>${servico.nome}</h3>
+                    <div class="detalhes">
+                        <span>⏱️ Duração: ${servico.duracao}</span> | 
+                        <span>💰 Preço: ${servico.preco}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Executa ao abrir o sistema para cumprir o critério de aceitação do RF01[cite: 8]
+        window.onload = carregarServicos;
+    </script>
+
+</body>
+</html>
