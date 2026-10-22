@@ -1,0 +1,158 @@
+:root {
+    --primary-color: #159;
+    --secondary-white-color: #FAF9F6;
+    --secondary-green-color: #5A1;
+    --secondary-gray-color: #999;
+    --primary-font-color: #2A2A2A;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--primary-font-color);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-image: url("assets/imgs/background_1.svg");
+    background-position: bottom center;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Manrope', sans-serif;
+    height: 100dvh;
+    padding: 5rem 0 0 5rem;
+    width: 100%;
+}
+
+h1 {
+    font-size: 4.5rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.75rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+}
+
+h6 {
+    font-size: 1.25rem;
+}
+
+p, span {
+    font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Tuffy", sans-serif;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.services {
+    flex: 3;
+}
+
+.services__heading {
+    margin-bottom: 4rem;
+}
+
+.services__card {
+    background-color: var(--secondary-white-color);
+    border-radius: 0.8rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-bottom: 1.2rem;
+    padding: 1.5rem 2rem;
+    width: 45rem;
+}
+
+.services__card h3 {
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+}
+
+.services__card-details {
+    color: #666;
+    font-size: 1.4rem;
+}
+
+.agenda {
+    align-items: center;
+    flex: 7;
+    justify-content: center;
+}
+
+.agenda__list {
+    align-items: center;
+    background-color: var(--secondary-white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    padding: 2rem;
+    transition: opacity 0.1s ease-in-out;
+    width: 70rem;
+}
+
+#agenda__list-days {
+    border-radius: 0.8rem 0.8rem 0 0;
+    height: 20rem;
+}
+
+.agenda__days {
+    display: flex;
+    flex-direction: row;
+}
+
+.agenda__day {
+    background-color: var(--secondary-green-color);
+    width: 6.5rem;
+}
+
+.agenda__dom {
+    background-color: var(--secondary-gray-color);
+}
+
+#agenda__list-hours {
+    border-radius: 0 0 0.8rem 0.8rem;
+    border-top: 0.1rem solid #AAA;
+    height: 28rem;
+}
+
+.agenda__hours {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.agenda__hour {
+    background-color: var(--secondary-green-color);
+    width: 8rem;
+}
+
+.agenda__day, .agenda__dom, .agenda__hour {
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-weight: 1000;
+    margin: 0.5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}

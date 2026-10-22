@@ -3,74 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda Studio Rita</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 20px;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .servico-card {
-            background: #ffffff;
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .servico-card h3 {
-            margin: 0 0 8px 0;
-            color: #2c3e50;
-        }
-        .detalhes {
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
+
+    <title>Studio Rita</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <section class="section services">
+        <span class="services__heading">
+            <h1>Studio Rita</h1>
+            <p>Escolha um serviço para agendar</p>
+        </span>
+        <!__ Requisito RF01: Listagem de serviços __>
+        <div id="services__list"></div>
+    </section>
 
-    <div class="container">
-        <h1>Studio Rita - Serviços</h1>
-        <p>Escolha um serviço para agendar:</p>
-        
-        <!-- Requisito RF01: Listagem de serviços -->
-        <div id="lista-servicos"></div>
-    </div>
+    <section class="section agenda">
+        <div id="agenda__list-days" class="agenda__list">
+            <h2>Agende seu serviço</h2>
+            <div class="agenda__days">
+                <span class="agenda__day">Seg</span>
+                <span class="agenda__day">Ter</span>
+                <span class="agenda__day">Qua</span>
+                <span class="agenda__day">Qui</span>
+                <span class="agenda__day">Sex</span>
+                <span class="agenda__day">Sáb</span>
+                <span class="agenda__dom">Dom</span>
+            </div>
+        </div>
 
-    <script>
-        const servicos = [
-            { id: 1, nome: "Corte", duracao: "1h", preco: "R$ 50" },
-            { id: 2, nome: "Escova", duracao: "30 min", preco: "R$ 35" },
-            { id: 3, nome: "Manicure", duracao: "30 min", preco: "R$ 25" },
-            { id: 4, nome: "Coloração", duracao: "1h30", preco: "R$ 120" }
-        ];
-
-        function carregarServicos() {
-            const container = document.getElementById("lista-servicos");
-            container.innerHTML = "";
-
-            servicos.forEach(servico => {
-                const card = document.createElement("div");
-                card.className = "servico-card";
-                card.innerHTML = `
-                    <h3>${servico.nome}</h3>
-                    <div class="detalhes">
-                        <span>⏱️ Duração: ${servico.duracao}</span> | 
-                        <span>💰 Preço: ${servico.preco}</span>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // Executa ao abrir o sistema para cumprir o critério de aceitação do RF01[cite: 8]
-        window.onload = carregarServicos;
-    </script>
-
+        <div id="agenda__list-hours" class="agenda__list">
+            <h2>Escolha seu horário</h2>
+            <div class="agenda__hours">
+                <span class="agenda__hour">09:00</span>
+                <span class="agenda__hour">09:30</span>
+                <span class="agenda__hour">10:00</span>
+                <span class="agenda__hour">10:30</span>
+                <span class="agenda__hour">11:00</span>
+                <span class="agenda__hour">14:00</span>
+                <span class="agenda__hour">14:30</span>
+                <span class="agenda__hour">15:00</span>
+                <span class="agenda__hour">15:30</span>
+                <span class="agenda__hour">16:00</span>
+                <span class="agenda__hour">16:30</span>
+                <span class="agenda__hour">17:00</span>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
