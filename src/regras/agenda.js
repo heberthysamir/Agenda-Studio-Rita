@@ -162,11 +162,10 @@ function carregarPainelDaRita() {
     const containerPainel = document.getElementById("painel-rita-agendamentos");
     if (!containerPainel) return; 
     const agendamentosSalvos = JSON.parse(localStorage.getItem("agendamentos")) || [];
-    
     containerPainel.innerHTML = "";
 
     if (agendamentosSalvos.length === 0) {
-        containerPainel.innerHTML = "<p>Nenhum agendamento registrado.</p>";
+        containerPainel.innerHTML = "<p>Nenhum agendamento registrado até o momento.</p>";
         return;
     }
 
@@ -180,11 +179,27 @@ function carregarPainelDaRita() {
             <p><strong>Telefone:</strong> ${agendamento.telefoneCliente}</p>
             <p><strong>Dia:</strong> ${agendamento.dia}</p>
             <p><strong>Horário:</strong> ${agendamento.horario}</p>
+            <button class="btn-remover" data-index="${index}">Remover Agendamento</button>
         `;
-
         containerPainel.appendChild(cardAgendamento);
     });
+
+    const botoesRemover = containerPainel.querySelectorAll(".btn-remover");
+    botoesRemover.forEach(botao => {
+        botao.onclick = (e) => {
+            const indexParaRemover = e.target.getAttribute("data-index");
+            removerAgendamento(indexParaRemover);
+        };
+    });
 }
+
+function removerAgendamento(index) {
+    let agendamentosSalvos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+    agendamentosSalvos.splice(index, 1);
+    localStorage.setItem("agendamentos", JSON.stringify(agendamentosSalvos));
+    carregarPainelDaRita();
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     loadServices();
     carregarPainelDaRita();
