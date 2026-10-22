@@ -107,11 +107,18 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     justify-content: space-between;
     opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
     padding: 2rem;
-    transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
     width: 70rem;
 }
 
+.agenda__list.ativa {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
 #agenda__list-days {
     border-radius: 0.8rem 0.8rem 0 0;
     height: 20rem;
@@ -148,11 +155,31 @@ h1, h2, h3, h4, h5, h6 {
     width: 8rem;
 }
 
-.agenda__day, .agenda__dom, .agenda__hour {
+.agenda__day, .agenda__dom, .agenda__hour{
     border-radius: 0.4rem;
     cursor: pointer;
     font-weight: 1000;
     margin: 0.5rem;
     padding: 2rem 1.5rem;
     text-align: center;
+}
+.button{
+    background-color: var(--secondary-green-color);
+    border: none;
+    border-radius: 0.4rem;
+    color: #fff;
+}
+#agenda__list-client {
+    border-radius: 0 0 0.8rem 0.8rem;
+    border-top: 0.1rem solid #AAA;
+    height: 28rem;
+}
+
+#form-cliente {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
 }
