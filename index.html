@@ -25,6 +25,7 @@
 
     <section class="section agenda">
         <div id="agenda__list-days" class="agenda__list">
+            <button id="btn-fechar-agenda" class="button">✖ Fechar</button>
             <h2>Agende seu serviço</h2>
             <div class="agenda__days">
                 <span class="agenda__day">Seg</span>
@@ -54,6 +55,22 @@
                 <span class="agenda__hour">17:00</span>
             </div>
         </div>
+        
+        <div id="agenda__list-client" class="agenda__list">
+            <h2>Informe seus dados</h2>
+            <form id="form-cliente">
+                <div class="input-group">
+                    <label for="input-nome">Nome:</label>
+                    <input type="text" id="input-nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="input-group">
+                    <label for="input-telefone">Telefone:</label>
+                    <input type="text" id="input-telefone" required placeholder="(00) 00000-0000">
+                </div>
+                <button type="submit" id="btn-confirmar-agendamento" class="button">Confirmar Agendamento</button>
+            </form>
+        </div>
+        
     </section>
 </body>
 </html>
