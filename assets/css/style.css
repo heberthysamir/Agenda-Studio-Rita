@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    background-image: url("assets/imgs/background_1.svg");
+    background-image: url("../imgs/background_1.svg");
     background-position: bottom center;
     background-size: cover;
     display: flex;
