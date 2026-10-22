@@ -6,7 +6,7 @@ const services = [
 ];
 
 const agendaListDays = document.getElementById("agenda__list-days");
-const agendaDays = document.querySelectorAll(".agenda__day, .agenda__dom");
+const agendaDays = document.querySelectorAll(".agenda__day");
 const agendaListHours = document.getElementById("agenda__list-hours");
 const agendaListClient = document.getElementById("agenda__list-client");
 const btnFecharAgenda = document.getElementById("btn-fechar-agenda");
