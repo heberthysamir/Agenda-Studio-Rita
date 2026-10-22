@@ -158,3 +158,34 @@ if (typeof module !== "undefined" && module.exports) {
         temSobreposicao
     };
 }
+function carregarPainelDaRita() {
+    const containerPainel = document.getElementById("painel-rita-agendamentos");
+    if (!containerPainel) return; 
+    const agendamentosSalvos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+    
+    containerPainel.innerHTML = "";
+
+    if (agendamentosSalvos.length === 0) {
+        containerPainel.innerHTML = "<p>Nenhum agendamento registrado.</p>";
+        return;
+    }
+
+    agendamentosSalvos.forEach((agendamento, index) => {
+        const cardAgendamento = document.createElement("div");
+        cardAgendamento.className = "painel__card-agendamento";
+        
+        cardAgendamento.innerHTML = `
+            <h3>${agendamento.serviceName}</h3>
+            <p><strong>Cliente:</strong> ${agendamento.nomeCliente}</p>
+            <p><strong>Telefone:</strong> ${agendamento.telefoneCliente}</p>
+            <p><strong>Dia:</strong> ${agendamento.dia}</p>
+            <p><strong>Horário:</strong> ${agendamento.horario}</p>
+        `;
+
+        containerPainel.appendChild(cardAgendamento);
+    });
+}
+window.addEventListener("DOMContentLoaded", () => {
+    loadServices();
+    carregarPainelDaRita();
+});
