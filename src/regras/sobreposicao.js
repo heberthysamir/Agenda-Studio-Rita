@@ -1,3 +1,10 @@
+export const services = [
+    { id: 1, name: "Corte", duration: "1h", price: "R$ 50" },
+    { id: 2, name: "Escova", duration: "30 min", price: "R$ 35" },
+    { id: 3, name: "Manicure", duration: "30 min", price: "R$ 25" },
+    { id: 4, name: "Coloração", duration: "1h30", price: "R$ 120" }
+];
+
 function horarioParaMinutos(horarioStr) {
     if (!horarioStr) return 0;
     const [horas, minutos] = horarioStr.split(":").map(Number);
@@ -22,7 +29,7 @@ function duracaoParaMinutos(duracaoStr) {
     return totalMinutos;
 }
 
-function temSobreposicao(novoAgendamento, agendamentosSalvos, listaServicos) {
+export function temSobreposicao(novoAgendamento, agendamentosSalvos, listaServicos) {
     const servicoNovo = listaServicos.find(s => s.id === novoAgendamento.serviceId);
     if (!servicoNovo) return false;
 
