@@ -155,9 +155,20 @@ if (typeof module !== "undefined" && module.exports) {
     module.exports = {
         horarioParaMinutos,
         duracaoParaMinutos,
-        temSobreposicao
+        temSobreposicao,
+        ordenarAgendamentos
     };
 }
+const ordemDias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+
+function ordenarAgendamentos(agendamentosSalvos) {
+    return agendamentosSalvos.map((agendamento, index) => ({ agendamento, index })).sort((a, b) => {
+        const diferencaDia = ordemDias.indexOf(a.agendamento.dia) - ordemDias.indexOf(b.agendamento.dia);
+        if (diferencaDia !== 0) return diferencaDia;
+        return horarioParaMinutos(a.agendamento.horario) - horarioParaMinutos(b.agendamento.horario);
+    });
+}
+
 function carregarPainelDaRita() {
     const containerPainel = document.getElementById("painel-rita-agendamentos");
     if (!containerPainel) return; 
@@ -169,7 +180,9 @@ function carregarPainelDaRita() {
         return;
     }
 
-    agendamentosSalvos.forEach((agendamento, index) => {
+    const agendamentosOrdenados = ordenarAgendamentos(agendamentosSalvos);
+
+    agendamentosOrdenados.forEach(({ agendamento, index }) => {
         const cardAgendamento = document.createElement("div");
         cardAgendamento.className = "painel__card-agendamento";
         
